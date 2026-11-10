@@ -1,0 +1,290 @@
+/* Custom Properties on Root */
+
+:root {
+    /* Colors */
+    --color-bg: rgb(253, 194, 146); /* softer background */
+    --color-section-bg: rgb(255, 167, 117);
+    --color-blocks: rgb(255, 141, 76);
+    --color-text: rgb(92, 42, 9);
+    --color-button: rgb(255, 115, 34);
+    --color-button-border: rgb(240, 97, 2);
+
+    /* Font Stack */
+    --font-all: "Times New Roman", Times, serif;
+    --font18: 1.125rem;
+
+    /* Layout Value */
+    --max-width: 1500px;
+    --padding: 15px;
+    --border-rad: 25px;
+}
+
+/* Body Styles */
+body {
+    /* Typography and Inheritance Section */
+    background-color: var(--color-bg);
+    font-family: var(--font-all);
+    color: var(--color-text);
+    line-height: 1.6;
+
+    /* Layout and Box Model */
+    max-width: var(--max-width);
+    margin: 0 auto; /* 0's at the top and bottom and centers page */
+    padding: var(--padding);
+}
+
+/* Headers  */
+h1 {
+    color: var(--color-text);
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: var(--color-text);
+    font-size: 2rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+section {
+    background-color: var(--color-section-bg);
+    border-radius: 25px;
+    padding: var(--padding);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    justify-content: center;
+    text-align: center;
+}
+
+section h2 {
+    background-color: var(--color-blocks);
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
+}
+
+section > ul {
+    list-style: none;
+}
+
+label {
+    font-size: 1.25rem;
+}
+
+section li label {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+ol {
+    list-style: none;
+    font-size: 1.25rem;
+}
+
+ul {
+    font-size: 1.25rem;
+}
+/* Navigation */
+
+nav {
+    background-color: var(--color-blocks);
+    border-radius: var(--border-rad);
+}
+
+/* Selectors in Context */
+nav > ul { /* This is a child combinator which targets the ul tag and it is a child of nav*/
+    list-style: none;
+    margin: 0;
+    padding: var(--padding); /* Padding to the left and right*/
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav li {
+    background-color: var(--color-button);
+    display: flex;
+    justify-content: center;
+
+    /* Border */
+    border: var(--color-button-border);
+    border-radius: var(--border-rad);
+    border-style: solid;
+}
+
+nav li a {
+    font-size: var(--font18);
+    color: var(--color-text);
+    text-decoration-line: none;
+    font-weight: bold;
+
+    margin: 0;
+    padding: 0.6em 2em;
+    
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    background-color: var(--color-blocks);
+    border-radius: var(--border-rad);
+}
+
+footer p {
+    font-size: var(--font18);
+    color: var(--color-text);
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 5px;
+}
+
+footer a {
+    font-size: var(--font18);
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    nav > ul {
+        flex-direction: column;
+    }
+}
+
+/* Selectors in Context */
+label + progress { /* Label + progress: they are adjacent siblings that selects progress after label so they sit side by side*/
+    padding: 10px;
+    margin-left: 0.5rem;
+    max-width: 100%;
+}   
+
+footer p ~ p { /* They are subsequent siblings where the paragraph after the first is the one that is targeted so it is separate from copyright section*/
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+/* Attribute Selector */
+a[href$=".pdf"] { /* Targets any link that has an href which ends in .pdf (this is mainly used for my resume to be downloaded) */
+    color: var(--color-text);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Layout and Responsiveness  */
+
+/*Mainly for experiments page so that it won't scroll sideways*/
+img {
+    max-width: 100%;
+    height: auto;
+    
+    border-radius: 25px;
+    border-style: solid;
+    border-color: var(--color-text);
+    
+}
+
+audio {
+    max-width: 100%;
+    height: auto;
+}
+
+video {
+    max-width: 100%;
+    border-radius: 25px;
+    height: auto;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+    border-radius: 25px;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+/* Hover Section */
+a:hover {
+    text-decoration: underline;
+    background-color: var(--color-button);
+    border-radius: var(--border-rad);
+}
+
+nav li a:hover{
+    text-decoration: underline;
+    background-color: var(--color-bg);
+    border-radius: var(--border-rad);
+}
+
+footer a:hover {
+    text-decoration: underline;
+    background-color: var(--color-bg);
+    border-radius: var(--border-rad);
+}
+
+/* Focus Section */
+a:focus {
+    color: var(--color-text);
+    outline: 3px;
+    outline-style: solid;
+}
+
+input:focus {
+    color: var(--color-text);
+    outline: 3px;
+    outline-style: solid;
+}
+
+button:focus {
+    color: var(--color-text);
+    outline: 3px;
+    outline-style: solid;
+}
+
+/* From hardware.html and software.html*/
+project-card {
+    display: block;
+    background-color: var(--color-section-bg);
+    border-radius: 25px;
+
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: var(--padding);
+}
